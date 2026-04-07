@@ -9,4 +9,4 @@ metadata:
 spec:
   predictor:
     sklearn:
-      storageUri: "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/model.joblib"
+      storageUri: "https://github.com/Mann10/mlops-e2e-pipeline/blob/main/model/model.pkl"
