@@ -1,0 +1,12 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: iris-model
+  namespace: default
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+    autoscaling.knative.dev/maxScale: "3"
+spec:
+  predictor:
+    sklearn:
+      storageUri: "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/model.joblib"
