@@ -2,11 +2,10 @@ apiVersion: serving.kserve.io/v1beta1
 kind: InferenceService
 metadata:
   name: iris-model
-  namespace: default
-  annotations:
-    autoscaling.knative.dev/minScale: "1"
-    autoscaling.knative.dev/maxScale: "3"
 spec:
   predictor:
-    sklearn:
-      storageUri: "https://github.com/Mann10/mlops-e2e-pipeline/blob/main/model/model.pkl"
+    containers:
+      - name: iris-container
+        image: kinglast/iris-model:v7
+        ports:
+          - containerPort: 8080
