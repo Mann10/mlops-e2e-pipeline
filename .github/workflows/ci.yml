@@ -26,6 +26,7 @@ jobs:
           cd model
           python train.py
           cd ..
+          cp model/model.pkl model.pkl
           python -m pytest tests/ -v
       - name: Build Docker image
         run: docker build -t iris-model:test .
