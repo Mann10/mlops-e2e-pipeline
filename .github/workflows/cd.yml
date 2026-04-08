@@ -11,6 +11,8 @@ jobs:
   deploy:
     if: github.event.workflow_run.conclusion == 'success' || github.event_name == 'push'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Log in to Docker Hub
@@ -29,5 +31,5 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add k8s/inference.yaml
-          git commit -m "Update image to v${{ github.run_number }}"
+          git commit -m "Update image to v${{ github.run_number }} [skip ci]"
           git push
