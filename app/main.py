@@ -24,3 +24,5 @@ def ready():
 def custom_predict(request: PredictionRequest):
     prediction = model.predict([request.data])
     return {"prediction": int(prediction[0])}
+
+#Test Workflow
