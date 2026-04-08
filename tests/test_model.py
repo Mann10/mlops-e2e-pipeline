@@ -3,7 +3,7 @@ import numpy as np
 
 
 def test_model_load_and_predict():
-    model = joblib.load("model.pkl")
+    model = joblib.load("model/model.pkl")
     # Sample iris data: [sepal length, sepal width, petal length, petal width]
     sample_data = [
         [5.1, 3.5, 1.4, 0.2],  # Setosa

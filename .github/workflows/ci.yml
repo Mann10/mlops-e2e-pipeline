@@ -25,7 +25,8 @@ jobs:
         run: |
           cd model
           python train.py
-          python -m pytest ../tests/ -v
+          cd ..
+          python -m pytest tests/ -v
       - name: Build Docker image
         run: docker build -t iris-model:test .
       - name: Test Docker image
