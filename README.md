@@ -14,6 +14,11 @@ This project implements an end-to-end MLOps pipeline for an Iris classification 
 
 KServe is a Kubernetes-native model serving framework that simplifies the deployment and management of ML models. It provides features like auto-scaling, canary deployments, and integration with inference runtimes. In this project, KServe handles the InferenceService defined in `k8s/inference.yaml`, automatically managing pods and scaling based on traffic.
 
+## What Kserve do under the hood.
+<img width="1677" height="778" alt="image" src="https://github.com/user-attachments/assets/b76b8a55-d832-4e18-a632-efcb78300f2d" />
+
+
+
 ## Prerequisites
 
 - [kind](https://kind.sigs.k8s.io/) for local Kubernetes cluster
