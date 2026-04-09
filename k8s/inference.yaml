@@ -7,6 +7,6 @@ spec:
   predictor:
     containers:
       - name: iris-container
-        image: kinglast/iris-model:v17
+        image: kinglast/iris-model:v18
         ports:
           - containerPort: 8080
