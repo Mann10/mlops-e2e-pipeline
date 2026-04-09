@@ -101,7 +101,25 @@ curl --location 'http://localhost:8080/predict' \
 
 ## CI/CD Pipeline
 
-The project uses GitHub Actions for automated CI/CD:
+The project uses GitHub Actions for automated CI/CD, with ArgoCD handling GitOps deployment to Kubernetes.
+
+### CI/CD Flow
+
+```mermaid
+flowchart TD
+    A[Push to main branch] --> B[CI Workflow]
+    B --> C[Lint code with flake8]
+    C --> D[Train model & run tests]
+    D --> E[Build & test Docker image]
+    E --> F[CI Success]
+    F --> G[CD Workflow]
+    G --> H[Build & push Docker image]
+    H --> I[Update k8s/inference.yaml with new image tag]
+    I --> J[Commit & push changes to repo]
+    J --> K[ArgoCD detects changes]
+    K --> L[ArgoCD syncs to Kubernetes cluster]
+    L --> M[KServe deploys updated InferenceService]
+```
 
 - **CI Workflow** (`.github/workflows/ci.yml`): Triggers on pushes/PRs to `main`.
   - Lints code with flake8.
